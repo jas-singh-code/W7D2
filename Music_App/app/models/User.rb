@@ -2,7 +2,7 @@
 #
 # Table name: users
 #
-#  id              :integer          not null, primary key
+#  id              :bigint           not null, primary key
 #  username        :string           not null
 #  email           :string           not null
 #  session_token   :string           not null
@@ -39,10 +39,12 @@ class User < ApplicationRecord
 
 
     def reset_session_token!
-        session_token = SecureRandom.urlsafe_base64
+        self.session_token = SecureRandom::urlsafe_base64
+        self.save!
+        self.session_token 
     end
 
     def ensure_session_token
-        self.session_token ||= SecureRandom.urlsafe_base64
+        self.session_token ||= SecureRandom::urlsafe_base64
     end
 end

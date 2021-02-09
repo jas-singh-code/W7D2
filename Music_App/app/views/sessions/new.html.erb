@@ -1,0 +1,17 @@
+<h1>Welcome "#{@user.username}"!</h1>
+
+    <form action="session_ur" method="post">
+
+        <%= auth_token %>
+        
+        <label for="username">Username
+            <input type="text" name="username" id="user_username" value="<%=@user.username %>">
+        </label>
+
+        <label for="password">Password
+            <input type="password" name="user[password]" id="password" value="<%= user.password %>">
+        </label>
+
+    
+    </form>
+    

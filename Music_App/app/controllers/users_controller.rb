@@ -1,27 +1,26 @@
-class UsersController < ApplicationControlller
+class UsersController < ApplicationController 
 
-    def new
-        @user = user.new
-        if @user.save
-            :new
-        else
-            flash[:errors] = @user.errors.full_messages
-        end
+    def new             #just gives sign up form to fill out
+        @user = User.new
+        render :new
     end
 
-    def create
-        @user = user.new(user_params)
-        if user.save
-            :new
+    def create  #actually sigining you up
+        @user = User.new(user_params)
+        if @user.save
+            login!(@user)
+            redirect_to #music page
         else 
             flash.now[:errors] = @user.errors.full_messages
+            render :new
+
         end
     end
 
     private
 
     def user_params
-        require(users).permit(:username, :password, :email)
+        params.require(:user).permit(:username, :password, :email)
     end
 
 end

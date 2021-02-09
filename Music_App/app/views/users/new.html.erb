@@ -1,0 +1,39 @@
+<h1> Create New User </h1>
+<br><br>
+    <form action="<%= users_url %>" method="POST">  
+    <%= auth_token %>
+        <ul>Errors:<% flash[:errors].each do |error| %>
+            <li><%= error %> </li>
+            <% end %>
+        </ul>
+
+        <label for="user_username">Username</label> 
+        <input
+            type="text"
+            name="user[username]"
+            id="user_username"
+            value="<%= @user.username %>"> 
+
+        <label for="user_password">Passowrd</label>
+        <input
+            type="password"
+            name="user[password]"
+            id="user_password"
+            value="<%= @user.password %>"> 
+            
+        <label for= user_email>Email</label>
+        <input
+            type="text"
+            name="user[email]"
+            id="user_email"
+            value="<%= @user.email  %>">
+        <button>Submit</button>
+    </form>
+
+
+
+        <!--<input
+            type='hidden'
+            name='authenticity_token'
+            value='<%= auth_token %>'>
+-->
