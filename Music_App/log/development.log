@@ -1212,3 +1212,7 @@ Migrating to Addtimestamps (20210209220648)
   ↳ bin/rails:9
   [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ /home/jaspreet/.rbenv/versions/2.5.1/bin/annotate:23
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE DATABASE "myapp_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (111.7ms)[0m  [1m[35mCREATE DATABASE "music_db_test" ENCODING = 'utf8'[0m
+  ↳ bin/rails:9
